@@ -1,0 +1,85 @@
+body {
+    background-color: black;
+    font-family: 'Exo 2', sans-serif;
+}
+
+#logo-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
+#pokemon {
+    width: 600px;
+    height: 275px;
+    border-radius: 24px;
+    border: 12px solid rgb(80, 89, 141);
+}
+
+#main-container {
+    display: grid;
+    grid-template-columns: 90px auto 25px auto 90px;
+    color: rgb(241, 241, 157);
+    -webkit-text-stroke: 2.5px rgb(80, 89, 141); 
+}
+
+.content-with-border {
+    border: 12px solid rgb(80, 89, 141);
+    margin-top: 50px;
+    border-radius: 24px;
+}
+
+#left-container {
+    display: grid;
+    grid-template-rows: 20% 80% 20%;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    height: 500px;
+}
+
+#init-lc-img {
+    width: 400px;
+    height: 300px;
+    justify-self: center;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    border: 1px solid rgb(80, 89, 141);
+    border-radius: 24px;
+}
+
+#right-container {
+    display: grid;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    height: 500px;
+}
+
+.rc-text-content {
+    font-size: 36px;
+    justify-self: center;
+}
+
+#rch1-1 {
+    margin-top: 24px;
+}
+
+#rc-span-7 {
+    margin-bottom: 24px;
+}
+
+.push {
+    height: 50px;
+}
+
+footer {
+    text-align: center;
+    border-top: 10px solid rgb(241, 241, 157);
+    background-color: rgb(80, 89, 141);
+    color: rgb(241, 241, 157);
+    margin-top: 45px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-right: 80px;
+    font-family: Georgia sans-serif;
+}

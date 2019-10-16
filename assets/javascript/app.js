@@ -2,27 +2,29 @@ const pokemonArray = ["bulbasaur", "charmander", "pikachu", "squirtle", "torchic
 const choppedUpNames = [];
 const wrongGuesses = [];
 
-
+let computerGuess = pokemonArray[Math.floor(Math.random() * pokemonArray.length)];
 
 function placeChoppedWord() {
 
-    let computerGuess = pokemonArray[Math.floor(Math.random() * pokemonArray.length)];
+    
 
     for (i = 0; i < computerGuess.length; i++) {
-        choppedUpNames.push(computerGuess.charAt(i));
+        choppedUpNames.push("_");
+        console.log(computerGuess)
     }
 
     computerChoice = document.getElementById("rc-span-3");
 
     computerChoice.textContent = choppedUpNames.toString();
+    computerChoice.textContent = choppedUpNames.join(" ");
 
     console.log(choppedUpNames);
-
-    //Hide or change characters to "_"
 
 }
 
 placeChoppedWord();
+
+
 
 // Function that changes "_" to correct letter
 
@@ -38,7 +40,7 @@ document.onkeypress = function Guesses(e) {
     wrongGuessesInHtml = document.getElementById("rc-span-7");
     wrongGuessesInHtml.textContent = wrongGuesses.toString();
 
-    if (choppedUpNames.includes(event.key)) {
+    if (computerGuess.includes(event.key)) {
         console.log("bitchin");
     } else {
         //decrease amount of guesses by 1 w/ i-- for loop

@@ -6,11 +6,15 @@ let computerGuess = pokemonArray[Math.floor(Math.random() * pokemonArray.length)
 let computerChoice = document.getElementById("rc-span-3");
 computerChoice.textContent = choppedUpNames.toString();
 computerChoice.textContent = choppedUpNames.join(" ");
-let pokePic = document.getElementById("pokemon");
 let winCount = 0;
 let winNumber = document.getElementById("wins");
 winNumber.textContent = " " + winCount;
-let wrongGuessCount = 0;
+let sound = document.getElementById("myAudio");
+
+function playAudio() {
+    sound.play();
+  }    
+  
 
 
 
@@ -35,14 +39,8 @@ function placeChoppedWord() {
 placeChoppedWord();
 
 
-
-// Function that changes "_" to correct letter
-
 // Function that displays/counts wrong guesses with if statement 
 // After ten guesses, new word
-
-
-
 
 document.onkeypress = function Guesses(e) {
 
@@ -68,16 +66,16 @@ document.onkeypress = function Guesses(e) {
     computerChoice.textContent = "GOOD JOB TRAINER!"
     winCount++;
     winNumber.textContent = " " + winCount;
+    playAudio();
     choppedUpNames = [];
     computerGuess = pokemonArray[Math.floor(Math.random() * pokemonArray.length)];
     setTimeout(placeChoppedWord, 4000);
-   }
+   } 
 
 }
 
 
 
-//Function that counts wins
 
 //Function that changes picture/plays sound when whole word
 //is guessed

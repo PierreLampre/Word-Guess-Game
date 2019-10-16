@@ -1,4 +1,4 @@
-const pokemonArray = ["bulbasaur", "charmander", "pikachu", "squirtle", "torchic", "treecko", "mudkip"];
+const pokemonArray = ["bulbasaur", "charmander", "pikachu", "squirtle", "torchic", "treecko", "mudkip", "chikorita", "cyndaquil", "totodile", "turtwig", "chimchar", "piplup"];
 let choppedUpNames = [];
 const wrongGuesses = [];
 
@@ -15,12 +15,8 @@ function playAudio() {
     sound.play();
   }    
   
-
-
-
 function placeChoppedWord() {
 
-    
 
     for (i = 0; i < computerGuess.length; i++) {
         choppedUpNames.push("_");
@@ -69,6 +65,7 @@ document.onkeypress = function Guesses(e) {
     playAudio();
     choppedUpNames = [];
     computerGuess = pokemonArray[Math.floor(Math.random() * pokemonArray.length)];
+    
     setTimeout(placeChoppedWord, 4000);
    } 
 

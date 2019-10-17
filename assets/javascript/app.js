@@ -13,9 +13,13 @@ let winNumber = document.getElementById("wins");
 winNumber.textContent = " " + winCount;
 let sound1 = document.getElementById("myAudio1");
 let sound2 = document.getElementById("myAudio2");
+let sound3 = document.getElementById("myAudio3");
 let guessCount = 10;
 let guessNumber = document.getElementById("rc-span-5");
 guessNumber.textContent = guessCount + " guess remaining";
+let leftContainer = document.getElementById("left-container");
+let rightContainer = document.getElementById("right-container");
+let hiddenWinDiv = document.getElementById("hiddenWinDiv");
 
 
 function playAudioWin() {
@@ -24,6 +28,10 @@ function playAudioWin() {
 
 function playAudioLose() {
     sound2.play();
+}
+
+function playWinGame() {
+    sound3.play();
 }
 
 
@@ -98,7 +106,18 @@ document.onkeypress = function Guesses(e) {
             wrongGuessesInHtml.textContent = "";
             guessCount = 10;
             guessNumber.textContent = guessCount + " guess remaining";
-            
+
+        }
+
+        if (winCount === 5) {
+            function winGame() {
+            leftContainer.style = "display: none;";
+            rightContainer.style = "display: none;";
+            hiddenWinDiv.style = "display: block; color: white;";
+            playWinGame();
+            }
+
+            setTimeout(winGame, 2000);
         }
 
     }

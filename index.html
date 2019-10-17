@@ -2,58 +2,68 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="assets/css/reset.css">
-        <link rel="stylesheet" href="assets/css/style.css">
-        <link href="https://fonts.googleapis.com/css?family=Exo+2:700&display=swap" rel="stylesheet">
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
 
-    </head>
-    <body>
-        <!--[if lt IE 7]>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Exo+2:700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <div id="logo-container">
-            <img id="pokemon" src="assets/img/pm.png" alt="">
+    <div id="logo-container">
+        <img id="pokemon" src="assets/img/pm.png" alt="">
+    </div>
+
+
+    <div id="main-container">
+        <div id="left-container" class="content-with-border">
+            <img src="assets/img/starters.png" alt="" id="init-lc-img">
         </div>
-        
-
-        <div id="main-container">
-            <div id="left-container" class="content-with-border">
-                <img src="assets/img/starters.png" alt="" id="init-lc-img">
-            </div>
-            <div id="right-container" class="content-with-border">
-                <h1 id="rch1-1" class="rc-text-content">Press any key to get started</h1>
-                <span id="rc-span-1" class="rc-text-content">Wins:<span id="wins"></span></span>
-                <span id="rc-span-2" class="rc-text-content">Current Word</span>
-                <span id="rc-span-3" class="rc-text-content"></span>
-                <span id="rc-span-4" class="rc-text-content">Number of guesses remaining</span>
-                <span id="rc-span-5" class="rc-text-content"></span>
-                <span id="rc-span-6" class="rc-text-content">Letter guessed</span>
-                <span id="rc-span-7" class="rc-text-content"></span>
-            </div>
+        <div id="right-container" class="content-with-border">
+            <h1 id="rch1-1" class="rc-text-content">Press any key to get started</h1>
+            <span id="rc-span-1" class="rc-text-content">Wins:<span id="wins"></span></span>
+            <span id="rc-span-2" class="rc-text-content">Current Word</span>
+            <span id="rc-span-3" class="rc-text-content"></span>
+            <span id="rc-span-4" class="rc-text-content">Number of guesses remaining</span>
+            <span id="rc-span-5" class="rc-text-content"></span>
+            <span id="rc-span-6" class="rc-text-content">Wrong Letters</span>
+            <span id="rc-span-7" class="rc-text-content"></span>
         </div>
+    </div>
 
-        <audio id="myAudio">
-            <source src="assets/audio/pm_success.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
+    <audio id="myAudio1">
+        <source src="assets/audio/pm_success.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
-        <div class="push">
+    <audio id="myAudio2">
+        <source src="assets/audio/womp_womp.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
-        </div>
-    
-        <footer>
-    
-            Copyright © 2019 - Justin Lampe
-    
-        </footer>
-        <script src="assets/javascript/app.js" async defer></script>
-    </body>
+    <div class="push">
+
+    </div>
+
+    <footer>
+
+        Copyright © 2019 - Justin Lampe
+
+    </footer>
+    <script src="assets/javascript/app.js" async defer></script>
+</body>
+
 </html>

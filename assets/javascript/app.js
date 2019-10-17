@@ -1,6 +1,8 @@
 const pokemonArray = ["bulbasaur", "charmander", "pikachu", "squirtle", "torchic", "treecko", "mudkip", "chikorita", "cyndaquil", "totodile", "turtwig", "chimchar", "piplup"];
 let choppedUpNames = [];
-const wrongGuesses = [];
+let wrongGuesses = [];
+let oblivion = [];
+
 
 let computerGuess = pokemonArray[Math.floor(Math.random() * pokemonArray.length)];
 let computerChoice = document.getElementById("rc-span-3");
@@ -9,12 +11,22 @@ computerChoice.textContent = choppedUpNames.join(" ");
 let winCount = 0;
 let winNumber = document.getElementById("wins");
 winNumber.textContent = " " + winCount;
-let sound = document.getElementById("myAudio");
+let sound1 = document.getElementById("myAudio1");
+let sound2 = document.getElementById("myAudio2");
+let guessCount = 10;
+let guessNumber = document.getElementById("rc-span-5");
+guessNumber.textContent = guessCount + " guess remaining";
 
-function playAudio() {
-    sound.play();
-  }    
-  
+
+function playAudioWin() {
+    sound1.play();
+}
+
+function playAudioLose() {
+    sound2.play();
+}
+
+
 function placeChoppedWord() {
 
 
@@ -48,31 +60,51 @@ document.onkeypress = function Guesses(e) {
                 console.log(choppedUpNames);
                 computerChoice.textContent = choppedUpNames.toString();
                 computerChoice.textContent = choppedUpNames.join(" ");
+                }
             }
-        }
+    
     } else {
-        //decrease amount of guesses by 1 w/ i-- for loop
-        console.log("nah");
-        wrongGuesses.push(event.key);
-        wrongGuessesInHtml = document.getElementById("rc-span-7");
-        wrongGuessesInHtml.textContent = wrongGuesses.toString();
+            //decrease amount of guesses by 1 w/ i-- for loop
+            console.log("nah");
+
+            wrongGuesses.push(event.key);
+            wrongGuessesInHtml = document.getElementById("rc-span-7");
+            wrongGuessesInHtml.textContent = wrongGuesses.toString();
+            guessCount--;
+            guessNumber.textContent = guessCount + " guess remaining";
+
+
+        }
+
+        if (!choppedUpNames.includes("_")) {
+            computerChoice.textContent = "GOOD JOB TRAINER!"
+            winCount++;
+            winNumber.textContent = " " + winCount;
+            playAudioWin();
+            choppedUpNames = [];
+            computerGuess = pokemonArray[Math.floor(Math.random() * pokemonArray.length)];
+
+            setTimeout(placeChoppedWord, 4000);
+        }
+
+        if (wrongGuesses.length > 9) {
+            computerChoice.textContent = "Aw, try again"
+            playAudioLose();
+            choppedUpNames = [];
+            computerGuess = pokemonArray[Math.floor(Math.random() * pokemonArray.length)];
+
+            setTimeout(placeChoppedWord, 4000);
+            wrongGuesses = [];
+            wrongGuessesInHtml.textContent = "";
+            guessCount = 10;
+            guessNumber.textContent = guessCount + " guess remaining";
+            
+        }
+
     }
 
-   if (!choppedUpNames.includes("_")) {
-    computerChoice.textContent = "GOOD JOB TRAINER!"
-    winCount++;
-    winNumber.textContent = " " + winCount;
-    playAudio();
-    choppedUpNames = [];
-    computerGuess = pokemonArray[Math.floor(Math.random() * pokemonArray.length)];
-    
-    setTimeout(placeChoppedWord, 4000);
-   } 
-
-}
 
 
 
-
-//Function that changes picture/plays sound when whole word
+//Function that changes picture when whole word
 //is guessed

@@ -20,6 +20,9 @@ guessNumber.textContent = guessCount + " guess remaining";
 let leftContainer = document.getElementById("left-container");
 let rightContainer = document.getElementById("right-container");
 let hiddenWinDiv = document.getElementById("hiddenWinDiv");
+let pokePic = document.getElementById("init-lc-img");
+winDiv = document.getElementById("goodJobTrainer");
+loseDiv = document.getElementById("awTryAgain");
 
 
 function playAudioWin() {
@@ -85,27 +88,38 @@ document.onkeypress = function Guesses(e) {
         }
 
         if (!choppedUpNames.includes("_")) {
-            computerChoice.textContent = "GOOD JOB TRAINER!"
+
+            pokePic.style = "display: none;"
+            winDiv.style = "display: block;";
             winCount++;
             winNumber.textContent = " " + winCount;
             playAudioWin();
             choppedUpNames = [];
             computerGuess = pokemonArray[Math.floor(Math.random() * pokemonArray.length)];
-
-            setTimeout(placeChoppedWord, 4000);
+            placeChoppedWord();
+            function resetStyles1() {
+                pokePic.style = "display: grid;";
+                winDiv.style = "display: hidden;";
+            }
+            setTimeout(resetStyles1, 3000);
         }
 
         if (wrongGuesses.length > 9) {
-            computerChoice.textContent = "Aw, try again"
+            pokePic.style = "display: none;"
+            loseDiv.style = "display: block;";
             playAudioLose();
             choppedUpNames = [];
             computerGuess = pokemonArray[Math.floor(Math.random() * pokemonArray.length)];
-
-            setTimeout(placeChoppedWord, 4000);
+            placeChoppedWord();
             wrongGuesses = [];
             wrongGuessesInHtml.textContent = "";
             guessCount = 10;
             guessNumber.textContent = guessCount + " guess remaining";
+            function resetStyles2() {
+                pokePic.style = "display: grid;";
+                loseDiv.style = "display: hidden;";
+            }
+            setTimeout(resetStyles2, 3000);
 
         }
 
@@ -122,7 +136,7 @@ document.onkeypress = function Guesses(e) {
 
     }
 
-
+  
 
 
 //Function that changes picture when whole word
